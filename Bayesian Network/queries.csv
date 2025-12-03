@@ -1,0 +1,20 @@
+TargetVariable,Evidence
+Flood,"{'Rainfall': 'High', 'SoilSaturation': 'High', 'RiverLevel': 'High', 'Drainage': 'Poor'}"
+Flood,"{'Rainfall': 'Low', 'SoilSaturation': 'Low', 'RiverLevel': 'Low', 'Drainage': 'Efficient'}"
+Landslide,{'Flood': 'Yes'}
+Landslide,{'Flood': 'No'}
+Bridge_Collapse,"{'Flood': 'Yes', 'InfrastructureAge': 'Old'}"
+Bridge_Collapse,"{'Flood': 'No', 'InfrastructureAge': 'Old'}"
+Bridge_Collapse,"{'Flood': 'Yes', 'InfrastructureAge': 'New'}"
+Water_Borne_Disease,"{'Flood': 'Yes', 'PopulationDensity': 'Dense', 'SanitationLevel': 'Poor'}"
+Water_Borne_Disease,"{'Flood': 'No', 'PopulationDensity': 'Sparse', 'SanitationLevel': 'Good'}"
+Power_Grid_Failure,"{'Flood': 'Yes', 'WindSpeed': 'High', 'TransformerLoad': 'High'}"
+Power_Grid_Failure,"{'Flood': 'No', 'WindSpeed': 'Low', 'TransformerLoad': 'Low'}"
+CommunicationFailure,{'Power_Grid_Failure': 'Yes'}
+CommunicationFailure,{'Power_Grid_Failure': 'No'}
+Road_Blockage,{'Landslide': 'Yes'}
+Road_Blockage,{'Landslide': 'No'}
+Delayed_Rescue,{'Road_Blockage': 'Yes'}
+Delayed_Rescue,{'Road_Blockage': 'No'}
+Rainfall,{'Flood': 'Yes'}
+Drainage,{'Flood': 'Yes'}
