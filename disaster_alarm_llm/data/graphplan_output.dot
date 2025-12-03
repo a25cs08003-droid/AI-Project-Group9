@@ -1,0 +1,34 @@
+strict digraph {
+F0_FloodWarning [label=FloodWarning, type=fact, level=0];
+F0_DiseaseRisk [label=DiseaseRisk, type=fact, level=0];
+F0_Bridge_Collapse_Risk [label="Bridge_Collapse_Risk", type=fact, level=0];
+A0_PreDeployRescueTeam [label=PreDeployRescueTeam, type=action, level=0];
+F1_RescueTeamReady [label=RescueTeamReady, type=fact, level=1];
+A0_ShiftRouteDueToBridgeRisk [label=ShiftRouteDueToBridgeRisk, type=action, level=0];
+F1_AlternateRouteActive [label=AlternateRouteActive, type=fact, level=1];
+A0_StockMedicalKitsInAdvance [label=StockMedicalKitsInAdvance, type=action, level=0];
+F1_MedicalSuppliesReady [label=MedicalSuppliesReady, type=fact, level=1];
+A0_OpenShelters [label=OpenShelters, type=action, level=0];
+F1_SheltersOpen [label=SheltersOpen, type=fact, level=1];
+A0_SendDroneForAssessment [label=SendDroneForAssessment, type=action, level=0];
+F1_DroneAssessmentDone [label=DroneAssessmentDone, type=fact, level=1];
+A1_EvacuateBeforeFlood [label=EvacuateBeforeFlood, type=action, level=1];
+F2_PopulationEvacuated [label=PopulationEvacuated, type=fact, level=2];
+A1_SendDroneForAssessment [label=SendDroneForAssessment, type=action, level=1];
+F2_DroneAssessmentDone [label=DroneAssessmentDone, type=fact, level=2];
+A2_SendDroneForAssessment [label=SendDroneForAssessment, type=action, level=2];
+F3_DroneAssessmentDone [label=DroneAssessmentDone, type=fact, level=3];
+F0_FloodWarning -> A0_PreDeployRescueTeam;
+F0_FloodWarning -> A0_OpenShelters;
+F0_DiseaseRisk -> A0_StockMedicalKitsInAdvance;
+F0_Bridge_Collapse_Risk -> A0_ShiftRouteDueToBridgeRisk;
+A0_PreDeployRescueTeam -> F1_RescueTeamReady;
+F1_RescueTeamReady -> A1_EvacuateBeforeFlood;
+A0_ShiftRouteDueToBridgeRisk -> F1_AlternateRouteActive;
+A0_StockMedicalKitsInAdvance -> F1_MedicalSuppliesReady;
+A0_OpenShelters -> F1_SheltersOpen;
+A0_SendDroneForAssessment -> F1_DroneAssessmentDone;
+A1_EvacuateBeforeFlood -> F2_PopulationEvacuated;
+A1_SendDroneForAssessment -> F2_DroneAssessmentDone;
+A2_SendDroneForAssessment -> F3_DroneAssessmentDone;
+}
